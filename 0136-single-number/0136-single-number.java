@@ -1,34 +1,20 @@
 class Solution {
     public int singleNumber(int[] nums) {
-
-        if(nums.length <= 1) {
-
+        
+        if(nums.length <= 1){
             return nums[0];
-
         }
-        
-        int val = 0;
-        
-        for(int i = 0 ; i <  nums.length ; i++){
-
-            int count = 0;
+        Arrays.sort(nums);
 
 
-            for(int j = 0 ; j <  nums.length ; j++){
+        for(int i = 0 ; i< nums.length - 1; i+=2){
 
-                if(nums[i] == nums[j]){
-                    count++;
-                }
-
+            if(nums[i] != nums[i+1]){
+                return nums[i];
             }
+
             
-
-                if(count == 1){
-                    val = nums[i];
-                }
-
         }
-
-        return val;
+        return nums[nums.length - 1];
     }
 }
