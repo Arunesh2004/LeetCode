@@ -7,13 +7,13 @@ class Solution {
 
         while(i >= 0 && j >= 0){
 
-            if(arr1[i] > arr2[j]  && arr1[i] != 0){
+            if(arr1[i] > arr2[j]){
 
                 arr1[k] = arr1[i];
                 i--;
 
             }
-            else if(arr2[j] != 0){ 
+            else{ 
 
                 arr1[k] = arr2[j];
                 j--;
