@@ -30,7 +30,7 @@ class Solution {
         }
 
         // Handling sign
-        if(arr[i] == '-' || arr[i] == '+'){
+        if( i < n && (arr[i] == '-' || arr[i] == '+')){
 
             if(arr[i] == '-'){
 
