@@ -7,8 +7,8 @@ class Solution {
         while(sumA < neededApples){
 
             count++;
-            sumA = sumA + (12*count*count);
-            // sumA = 2 * count * ( count + 1 ) * ( 2 * count + 1 );
+            // sumA = sumA + (12*count*count);
+            sumA = 2 * count * ( count + 1 ) * ( 2 * count + 1 );
             
         }
 
