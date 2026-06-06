@@ -1,49 +1,39 @@
 class Solution {
+
     public void sortColors(int[] nums) {
-        
-        int count0 = 0;
-        int count1 = 0;
-        int count2 = 0;
 
-        for(int i = 0 ; i < nums.length ; i++){
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
 
-            if(nums[i] == 0){
+        while(mid <= high) {
 
-                count0++ ;
+            if(nums[mid] == 0) {
 
+                int temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+
+                low++;
+                mid++;
             }
-            else if(nums[i] == 1){
 
-                count1++ ;
-
+            else if(nums[mid] == 1) {
+                mid++;
             }
-            else{
 
-                count2++ ;
+            else {
 
-            }
-        }
+                int temp = nums[mid];
+                nums[mid] = nums[high];
+                nums[high] = temp;
 
-        for(int j = 0 ; j < nums.length ; j++){
-
-            if(count0 != 0){
-
-                nums[j] = 0;
-                count0--;
-
-            }
-            else if(count0 == 0 && count1 != 0){
-
-                nums[j] = 1;
-                count1--;
-
-            }
-            else{
-
-                nums[j] = 2;
-                count2--;
-
+                high--;
             }
         }
     }
 }
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/leethub-v4/bcilpkkbokcopmabingnndookdogmbna
