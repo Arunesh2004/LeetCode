@@ -1,19 +1,37 @@
 class Solution {
+
     public void rotate(int[][] matrix) {
-        
+
         int n = matrix.length;
 
-        for(int i = 0 ; i < (n + 1)/2 ; i++){
+        for(int i = 0; i < n; i++) {
 
-            for(int j = 0 ; j < n/2 ; j++){
+            for(int j = i + 1; j < n; j++) {
 
-                int temp = matrix[n - 1 - j][i];
-                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - j - 1];
-                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 - i];
-                matrix[j][n - 1 - i] = matrix[i][j];
-                matrix[i][j] = temp;
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
 
+        for(int i = 0; i < n; i++) {
+
+            int left = 0;
+            int right = n - 1;
+
+            while(left < right) {
+
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+
+                left++;
+                right--;
             }
         }
     }
 }
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
