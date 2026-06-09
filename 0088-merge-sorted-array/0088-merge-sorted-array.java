@@ -1,35 +1,35 @@
 class Solution {
-    public void merge(int[] arr1, int m, int[] arr2, int n) {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
 
-        int i = m - 1;
-        int j = n - 1;
-        int k = m + n - 1;
+        int[] ans = new int[m + n];
 
-        while(i >= 0 && j >= 0){
+        int i = 0;
+        int j = 0;
+        int k = 0;
 
-            if(arr1[i] > arr2[j]){
+        while(i < m && j < n) {
 
-                arr1[k] = arr1[i];
-                i--;
-
+            if(nums1[i] <= nums2[j]) {
+                ans[k++] = nums1[i++];
+            } else {
+                ans[k++] = nums2[j++];
             }
-            else{ 
-
-                arr1[k] = arr2[j];
-                j--;
-
-            }
-
-            k--;
         }
 
-        while(j >= 0){
-
-            arr1[k] = arr2[j];
-            k--;
-            j--;
-
+        while(i < m) {
+            ans[k++] = nums1[i++];
         }
 
+        while(j < n) {
+            ans[k++] = nums2[j++];
+        }
+
+        for(i = 0; i < m + n; i++) {
+            nums1[i] = ans[i];
+        }
     }
 }
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
