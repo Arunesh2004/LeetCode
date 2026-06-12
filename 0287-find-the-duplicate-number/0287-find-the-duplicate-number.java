@@ -1,20 +1,21 @@
 class Solution {
     public int findDuplicate(int[] nums) {
 
-        boolean[] SeenAlready = new boolean[nums.length + 1];
+        int[] hash = new int[nums.length];
 
-        for(int i = 0 ; i < nums.length ; i++){
-            
-            if(SeenAlready[nums[i]]){
+        for(int num : nums) {
 
-                return nums[i];
-
+            if(hash[num] == 1) {
+                return num;
             }
 
-            SeenAlready[nums[i]] = true;
-
+            hash[num] = 1;
         }
 
         return -1;
     }
 }
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
